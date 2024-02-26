@@ -1,0 +1,49 @@
+{% load static %}
+{% load widget_tweaks %}
+<! DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>To-Do List App</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="todo-app">
+        <h2>To-Do List <img src="{% static 'images/icon.png' %}" alt="notepad"></h2>
+        {% block content %}
+            <form method="post" action="{% url 'tasks:index' %}">
+                <div class="row">
+                    {% csrf_token %}
+                    {% render_field form.title placeholder="Add your text" class+="form-control" style="flex: 1; border: none; outline: none; background: transparent; padding: 10px; font-size: 14px;" %}
+                    <button type="submit">Add</button>
+                </div>
+
+                <ul id="list-container">
+                {% for task in tasks %}
+                    <li>
+                    {% if task.complete == True %}
+                        <strike><span class="task-text">{{task}}</span></strike>
+                    {% else %}
+                        <span class="task-text">{{task}}</span>
+                    {% endif %}
+
+                    <a href="{% url 'tasks:update_task' task.id %}" class="update-link">Update</a>
+                    <a href="{% url 'tasks:delete' task.id %}" class="delete-link">Delete</a>
+                    </li>
+                {% endfor %}
+                </ul>
+
+
+            </form>
+
+        {% endblock content %}
+    </div>
+
+
+</div>
+</body>
+
+
+</html>

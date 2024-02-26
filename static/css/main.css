@@ -1,0 +1,107 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #153677, #4e085f);
+    padding: 10px;
+}
+
+.todo-app{
+    width: 100%;
+    max-width: 540px;
+    background: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.todo-app h2{
+    color: #002765;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.todo-app h2 img{
+    width: 30px;
+    margin-left: 10px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+button{
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+ul {
+    list-style-type: none; /* Remove default list-style */
+}
+
+ul li{
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    line-height: 46px;
+}
+
+ul li::before{
+    content: '';
+    display: inline-block;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-color: #ff5945;
+    margin-right: 8px;
+    position: relative;
+}
+
+ul li span {
+    margin-right: 8px; /* Adjust the space between the text and links */
+}
+
+ul li a {
+    text-decoration: none; /* Remove underline from links */
+}
+
+ul li .update-link,
+ul li .delete-link {
+    margin-left: 8px; /* Adjust the space between the links */
+    float: right; /* Align the links to the right */
+}
+
+ul li .delete-link {
+    color: #e74c3c; /* Set color for the delete link */
+}
+
+ul li .update-link {
+    color: #002765; ; /* Set color for the delete link */
+}
+
+#list-container li .task-text {
+    color: #002765; /* Set the desired font color for the task text */
+}

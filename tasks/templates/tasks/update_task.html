@@ -1,0 +1,11 @@
+{% extends 'tasks/list.html'  %}
+{% block content %}
+<h3>Updated Task</h3>
+
+<form method="post" action="{% url 'tasks:update_task' task.id%}">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" name="Update Task">
+</form>
+
+{% endblock content %}
